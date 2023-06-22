@@ -21,11 +21,15 @@ class UniversidadeController extends Controller
    
     public function store(Request $request)
     {
-        //store a new post
+        $newPost = Universidade::create([
+            'nome' => $request->nome
+        ]);
+
+        return redirect('universidade/' . $newPost->id)->with('success', 'Exemplo criado com sucesso!');
     }
 
     public function show(Universidade $universidade)
-    {
+    {   
         return $universidade; 
     }
 
@@ -38,7 +42,11 @@ class UniversidadeController extends Controller
     
     public function update(Request $request, Universidade $universidade)
     {
-        //save the edited post
+        $universidade->update([
+            'nome' => $request->nome
+        ]);
+
+        return redirect('universidade');
     }
 
     
