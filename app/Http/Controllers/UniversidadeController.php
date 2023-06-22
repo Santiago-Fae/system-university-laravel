@@ -13,11 +13,6 @@ class UniversidadeController extends Controller
         return $universidade; 
     }
 
-     public function create()
-    {
-        //show form to create a universidade post
-    }
-
    
     public function store(Request $request)
     {
@@ -34,24 +29,20 @@ class UniversidadeController extends Controller
     }
 
     
-    public function edit(Universidade $universidade)
-    {
-        //show form to edit the post
-    }
-
-    
     public function update(Request $request, Universidade $universidade)
     {
         $universidade->update([
             'nome' => $request->nome
         ]);
 
-        return redirect('universidade');
+        return $request;
     }
 
     
     public function destroy(Universidade $universidade)
     {
-        //delete a post
+        $universidade->delete();
+
+        return redirect('/universidade');
     }
 }

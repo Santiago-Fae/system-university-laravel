@@ -13,37 +13,36 @@ class CursoController extends Controller
         return $curso; 
     }
 
-     public function create()
-    {
-        //show form to create a curso post
-    }
-
    
     public function store(Request $request)
     {
-        //store a new post
+        $newPost = Curso::create([
+            'nome' => $request->nome
+        ]);
+
+        return redirect('curso/' . $newPost->id)->with('success', 'Exemplo criado com sucesso!');
     }
 
     public function show(Curso $curso)
-    {
-        //show a curso post
-    }
-
-    
-    public function edit(Curso $curso)
-    {
-        //show form to edit the post
+    {   
+        return $curso; 
     }
 
     
     public function update(Request $request, Curso $curso)
     {
-        //save the edited post
+        $curso->update([
+            'nome' => $request->nome
+        ]);
+
+        return $request;
     }
 
     
     public function destroy(Curso $curso)
     {
-        //delete a post
+        $curso->delete();
+
+        return redirect('/curso');
     }
 }
