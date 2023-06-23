@@ -47,5 +47,4 @@ Route::post('/universidade', [\App\Http\Controllers\UniversidadeController::clas
 Route::post('/universidade/{universidade}', [\App\Http\Controllers\UniversidadeController::class, 'update']);
 Route::post('/universidade/delete/{universidade}', [\App\Http\Controllers\UniversidadeController::class, 'destroy']);
 
-
 Route::get('/curso', [\App\Http\Controllers\CursoController::class, 'index']);

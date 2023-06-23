@@ -17,7 +17,9 @@ class MatriculaController extends Controller
     public function store(Request $request)
     {
         $newPost = Matricula::create([
-            'nome' => $request->nome
+            'aluno_id' => $request->aluno_id,
+            'disciplina_id' => $request->disciplina_id,
+            'semestre' => $request->semestre
         ]);
 
         return redirect('matricula/' . $newPost->id)->with('success', 'Exemplo criado com sucesso!');
@@ -32,7 +34,9 @@ class MatriculaController extends Controller
     public function update(Request $request, Matricula $matricula)
     {
         $matricula->update([
-            'nome' => $request->nome
+            'aluno_id' => $request->aluno_id,
+            'disciplina_id' => $request->disciplina_id,
+            'semestre' => $request->semestre
         ]);
 
         return $request;

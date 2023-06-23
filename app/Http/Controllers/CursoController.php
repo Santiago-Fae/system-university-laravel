@@ -17,7 +17,8 @@ class CursoController extends Controller
     public function store(Request $request)
     {
         $newPost = Curso::create([
-            'nome' => $request->nome
+            'nome' => $request->nome,
+            'universidade_id' => $request->universidade_id
         ]);
 
         return redirect('curso/' . $newPost->id)->with('success', 'Exemplo criado com sucesso!');
@@ -32,7 +33,8 @@ class CursoController extends Controller
     public function update(Request $request, Curso $curso)
     {
         $curso->update([
-            'nome' => $request->nome
+            'nome' => $request->nome,
+            'universidade_id' => $request->universidade_id
         ]);
 
         return $request;

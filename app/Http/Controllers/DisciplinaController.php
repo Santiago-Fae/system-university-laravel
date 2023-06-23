@@ -17,7 +17,8 @@ class DisciplinaController extends Controller
     public function store(Request $request)
     {
         $newPost = Disciplina::create([
-            'nome' => $request->nome
+            'nome' => $request->nome,
+            'curso_id' => $request->curso_id
         ]);
 
         return redirect('disciplina/' . $newPost->id)->with('success', 'Exemplo criado com sucesso!');
@@ -32,7 +33,8 @@ class DisciplinaController extends Controller
     public function update(Request $request, Disciplina $disciplina)
     {
         $disciplina->update([
-            'nome' => $request->nome
+            'nome' => $request->nome,
+            'curso_id' => $request->curso_id
         ]);
 
         return $request;

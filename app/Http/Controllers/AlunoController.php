@@ -17,7 +17,8 @@ class AlunoController extends Controller
     public function store(Request $request)
     {
         $newPost = Aluno::create([
-            'nome' => $request->nome
+            'nome' => $request->nome,
+            'curso_id' => $request->curso_id
         ]);
 
         return redirect('aluno/' . $newPost->id)->with('success', 'Exemplo criado com sucesso!');
@@ -32,7 +33,8 @@ class AlunoController extends Controller
     public function update(Request $request, Aluno $aluno)
     {
         $aluno->update([
-            'nome' => $request->nome
+            'nome' => $request->nome,
+            'curso_id' => $request->curso_id
         ]);
 
         return $request;
