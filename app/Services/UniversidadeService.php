@@ -6,18 +6,11 @@ use App\Models\Universidade;
 
 class UniversidadeService
 {
-    public function criarUniversidade($nome)
+    public function verificaNomeDuplicado($nome)
     {
-        // Regras de validação e lógica de negócio
-        // Criação da universidade
-    }
+        $universidade = Universidade::where('nome', $nome)->first();
 
-    public function atualizarUniversidade($id, $nome)
-    {
-        // Regras de validação e lógica de negócio
-        // Atualização da universidade
+        return $universidade !== null;
     }
-
-    // Outros métodos relacionados às regras de negócio
 }
 ?>

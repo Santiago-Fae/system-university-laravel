@@ -32,16 +32,16 @@ class SwitchDatabase
         // Pode ser uma verificação de parâmetro da URL, cabeçalho da requisição, etc.
 
         // Exemplo: verificar parâmetro da URL
-        if ($request->has('database')) {
-            $database = $request->input('database');
+        if ($request->header('Database')) {
+            $database = $request->header('Database');
 
             // Verificar se o nome do banco de dados é válido
-            if (in_array($database, ['database1', 'database2'])) {
+            if (in_array($database, ['mysql', 'mysql2'])) {
                 return $database; // Retornar o nome da conexão do banco de dados
             }
         }
 
         // Caso nenhum critério seja atendido, retornar a conexão padrão
-        return 'default';
+        return 'mysql';
     }
 }

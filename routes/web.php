@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Universidade;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +16,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/universidade', function () {
+    return Universidade::all(); 
+
 });
 
 Route::get('/aluno', [\App\Http\Controllers\AlunoController::class, 'index']);
@@ -41,7 +47,7 @@ Route::post('/matricula', [\App\Http\Controllers\MatriculaController::class, 'st
 Route::post('/matricula/{matricula}', [\App\Http\Controllers\MatriculaController::class, 'update']);
 Route::post('/matricula/delete/{matricula}', [\App\Http\Controllers\MatriculaController::class, 'destroy']);
 
-Route::get('/universidade', [\App\Http\Controllers\UniversidadeController::class, 'index']);
+//Route::get('/universidade', [\App\Http\Controllers\UniversidadeController::class, 'index']);
 Route::get('/universidade/{universidade}', [\App\Http\Controllers\UniversidadeController::class, 'show']);
 Route::post('/universidade', [\App\Http\Controllers\UniversidadeController::class, 'store']);
 Route::post('/universidade/{universidade}', [\App\Http\Controllers\UniversidadeController::class, 'update']);
