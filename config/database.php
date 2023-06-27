@@ -82,19 +82,23 @@ return [
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
         ],
-        'pgsql' => [
+        'postgres' => [
             'driver' => 'pgsql',
-            'url' => env('DATABASE_URL'),
-            'host' => "postgres://jpyprwlw:XyrR9mKwzcNHXgJbuGfwrn5nk6SkYzpk@silly.db.elephantsql.com/jpyprwlw",
+            'url' => '',
+            'host' => "silly.db.elephantsql.com",
             'port' => env('DB_PORT', '5432'),
             'database' => "jpyprwlw",
             'username' => "jpyprwlw",
             'password' => "XyrR9mKwzcNHXgJbuGfwrn5nk6SkYzpk",
-            'charset' => 'utf8',
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
             'prefix' => '',
             'prefix_indexes' => true,
-            'schema' => 'public',
-            'sslmode' => 'prefer',
+            'strict' => true,
+            'engine' => null,
+            'options' => extension_loaded('pdo_mysql') ? array_filter([
+                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+            ]) : [],
         ],
 
         'sqlsrv' => [
