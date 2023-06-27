@@ -36,7 +36,7 @@ class SwitchDatabase
             $database = $request->header('Database');
 
             // Verificar se o nome do banco de dados é válido
-            if (in_array($database, ['mysql', 'mysql2', 'postgres'])) {
+            if (in_array($database, ['mysql', 'postgresql'])) {
                 return $database; // Retornar o nome da conexão do banco de dados
             }
         }
